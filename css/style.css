@@ -347,6 +347,14 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   color: var(--ink);
   margin-bottom: 0.2em;
 }
+.committee-name a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.committee-name a:hover {
+  color: var(--red);
+  text-decoration: underline;
+}
 .committee-affiliation {
   font-size: 0.9rem;
   color: var(--ink-soft);
