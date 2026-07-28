@@ -51,6 +51,7 @@ files) out of the repo and only commit the sizes actually referenced by the site
 | File | Size | Used for |
 |---|---|---|
 | `img/logo.png` | 160×160 | header + footer logo |
+| `img/logo-hero.png` | 320×320 | hero logo, next to the title |
 | `img/apple-touch-icon.png` | 180×180 | iOS home-screen icon |
 | `img/favicon-32.png` | 32×32 | favicon |
 | `img/favicon-16.png` | 16×16 | favicon |
