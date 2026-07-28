@@ -3,7 +3,7 @@
 Static save-the-date site for the KAAI Workshop on Foundation Models & Agentic Methods for
 Astrophysical Simulation (Carnegie Mellon University, August 31 – September 3, 2026).
 
-Plain HTML/CSS/JS — no build step, no dependencies.
+Plain HTML/CSS/JS. No build step, no dependencies.
 
 ## Local preview
 
@@ -23,7 +23,7 @@ then visit `http://localhost:8000`.
 4. Choose branch `main`, folder `/ (root)`, then **Save**.
 5. The site will be published at `https://<org-or-user>.github.io/<repo-name>/`.
 
-No Actions workflow or build step is required — `index.html` at the repo root is served as-is.
+No Actions workflow or build step is required: `index.html` at the repo root is served as-is.
 
 ## Where to edit each TBD section
 
@@ -45,7 +45,7 @@ The countdown target date is set in `js/main.js` (`workshopStart`).
 
 ## Images
 
-`img/` holds pre-sized, web-optimized copies of the logo — keep source art (large master
+`img/` holds pre-sized, web-optimized copies of the logo. Keep source art (large master
 files) out of the repo and only commit the sizes actually referenced by the site:
 
 | File | Size | Used for |
