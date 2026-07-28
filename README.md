@@ -32,7 +32,7 @@ script in `js/main.js`.
 
 | Section | Look for | Notes |
 |---|---|---|
-| Logo | `<!-- TODO: logo -->` comment near the header wordmark | Don't use CMU's official logo/wordmark (trademark restrictions) |
+| Logo | `img/logo.png`, used in header (`.wordmark-logo`) and footer (`.footer-logo`) | To replace: drop a new source image anywhere, regenerate sizes with `sips -z <px> <px> source.png --out img/<name>.png` (see sizes below), and don't use CMU's official logo/wordmark (trademark restrictions) |
 | Contact email | `<!-- TODO: contact email -->` in Registration and Footer | |
 | Schedule | `#schedule` section | Replace placeholder with talk-by-talk detail once finalized |
 | Speakers | `#speakers` section, `.speaker-card.placeholder` cards | Replace placeholder cards with real name/affiliation/photo cards |
@@ -42,3 +42,15 @@ script in `js/main.js`.
 | Venue/room details | Hero and Format sections | Currently only "Carnegie Mellon University, Pittsburgh, PA" |
 
 The countdown target date is set in `js/main.js` (`workshopStart`).
+
+## Images
+
+`img/` holds pre-sized, web-optimized copies of the logo — keep source art (large master
+files) out of the repo and only commit the sizes actually referenced by the site:
+
+| File | Size | Used for |
+|---|---|---|
+| `img/logo.png` | 160×160 | header + footer logo |
+| `img/apple-touch-icon.png` | 180×180 | iOS home-screen icon |
+| `img/favicon-32.png` | 32×32 | favicon |
+| `img/favicon-16.png` | 16×16 | favicon |
