@@ -141,8 +141,8 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 }
 
 .hero-logo {
-  width: 96px;
-  height: 96px;
+  width: 160px;
+  height: 160px;
   flex-shrink: 0;
 }
 
@@ -256,7 +256,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 
 /* Speaker placeholders */
 .speaker-grid {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 .speaker-card.placeholder {
   aspect-ratio: 3 / 4;
@@ -352,7 +352,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
     gap: 16px;
   }
   .hero-logo {
-    width: 72px;
-    height: 72px;
+    width: 110px;
+    height: 110px;
   }
 }
