@@ -33,7 +33,7 @@ script in `js/main.js`.
 | Section | Look for | Notes |
 |---|---|---|
 | Logo | `img/logo.png`, used in header (`.wordmark-logo`) and footer (`.footer-logo`) | To replace: drop a new source image anywhere, regenerate sizes with `sips -z <px> <px> source.png --out img/<name>.png` (see sizes below), and don't use CMU's official logo/wordmark (trademark restrictions) |
-| Contact email | `<!-- TODO: contact email -->` in Registration and Footer | |
+| Contact email | `mailto:mah2406@columbia.edu` links in Registration and Footer | Update both if the contact changes |
 | Schedule | `#schedule` section | Replace placeholder with talk-by-talk detail once finalized |
 | Speakers | `#speakers` section, `.speaker-card.placeholder` cards | Replace placeholder cards with real name/affiliation/photo cards |
 | Hackathon details | `#hackathon` section | Team formation, judging, submission process, compute resources |
