@@ -322,9 +322,39 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   font-weight: 400;
 }
 
-/* Speaker placeholders */
+/* Speakers */
 .speaker-grid {
   grid-template-columns: repeat(3, 1fr);
+}
+.speaker-card {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.speaker-photo-wrap {
+  aspect-ratio: 1 / 1;
+  background: var(--bg-alt);
+}
+.speaker-photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.speaker-info {
+  padding: 18px 22px 22px;
+}
+.speaker-name {
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.2em;
+}
+.speaker-role {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 0;
 }
 .speaker-card.placeholder {
   aspect-ratio: 3 / 4;
