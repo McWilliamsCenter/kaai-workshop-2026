@@ -193,6 +193,27 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   color: var(--ink-soft);
 }
 
+.button {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 12px 28px;
+  background: var(--red);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.button:hover {
+  background: var(--red-dark);
+  text-decoration: none;
+}
+
+.registration-contact {
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
 .topic-list {
   margin: 28px 0 28px;
   padding: 0;
@@ -254,6 +275,33 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 }
 
 /* Schedule table */
+.schedule-details {
+  margin-top: 8px;
+}
+.schedule-details summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--red);
+  list-style: none;
+}
+.schedule-details summary::-webkit-details-marker {
+  display: none;
+}
+.schedule-details summary::before {
+  content: "\25B8";
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+.schedule-details[open] summary::before {
+  transform: rotate(90deg);
+}
+.schedule-details summary:hover {
+  color: var(--red-dark);
+}
 .schedule-day-block {
   margin-top: 40px;
 }
@@ -321,10 +369,15 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   font-style: italic;
   font-weight: 400;
 }
+.schedule-table .session.dinner {
+  color: var(--ink);
+  font-style: normal;
+  font-weight: 600;
+}
 
 /* Speakers */
 .speaker-grid {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 .speaker-card {
   padding: 0;
@@ -356,18 +409,6 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   color: var(--ink-soft);
   margin-bottom: 0;
 }
-.speaker-card.placeholder {
-  aspect-ratio: 3 / 4;
-  background: repeating-linear-gradient(
-    135deg,
-    var(--bg-alt),
-    var(--bg-alt) 10px,
-    var(--bg-warm) 10px,
-    var(--bg-warm) 20px
-  );
-  border-style: dashed;
-}
-
 /* Committee */
 .committee-grid {
   grid-template-columns: repeat(3, 1fr);
