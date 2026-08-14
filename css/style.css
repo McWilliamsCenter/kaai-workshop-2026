@@ -462,9 +462,13 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 
 /* Speakers */
 .speaker-grid {
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
 }
 .speaker-card {
+  flex: 0 1 328px;
   padding: 0;
   overflow: hidden;
   display: flex;
@@ -572,8 +576,8 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   .committee-grid {
     grid-template-columns: 1fr;
   }
-  .speaker-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .speaker-card {
+    flex-basis: calc(50% - 12px);
   }
   .schedule-table .speaker {
     display: none;
