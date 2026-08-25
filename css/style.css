@@ -520,6 +520,18 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   color: var(--ink-soft);
   margin-bottom: 0;
 }
+/* Hackathon tracks */
+.track-grid {
+  grid-template-columns: 1fr;
+}
+.track-card h3 {
+  color: var(--red-dark);
+  font-size: 1.05rem;
+}
+.track-card p {
+  margin-bottom: 0;
+}
+
 /* Committee */
 .committee-grid {
   grid-template-columns: repeat(3, 1fr);
