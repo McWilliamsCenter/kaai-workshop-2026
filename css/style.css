@@ -457,6 +457,44 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   font-style: normal;
   color: var(--ink);
 }
+.abstract-toggle {
+  display: block;
+}
+.abstract-toggle summary {
+  cursor: pointer;
+  list-style: none;
+}
+.abstract-toggle summary::-webkit-details-marker {
+  display: none;
+}
+.abstract-toggle summary::after {
+  content: "Show abstract";
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--red);
+  vertical-align: middle;
+}
+.abstract-toggle[open] summary::after {
+  content: "Hide abstract";
+}
+.abstract-toggle summary:hover::after {
+  color: var(--red-dark);
+}
+.session-abstract {
+  margin-top: 8px;
+  max-width: 640px;
+}
+.session-abstract p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  font-weight: 400;
+  margin: 0 0 0.8em;
+}
+.session-abstract p:last-child {
+  margin-bottom: 0;
+}
 .schedule-table .speaker {
   color: var(--ink-soft);
   font-style: italic;

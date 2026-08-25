@@ -40,9 +40,12 @@ Row handling by Type (case-insensitive):
 
 Title / Speaker text:
     - Empty or literal "TBA" (any case) -> displayed as "TBA".
-    - Abstracts are intentionally NOT read from the CSV yet -- they are not
-      collected for all talks. When ready to publish them, extend this script to
-      pull the Abstract column and add an expandable element per talk.
+
+Abstracts:
+    - When the Abstract column is non-empty, the title is rendered as a native
+      <details><summary> so the abstract is hidden by default and expands on
+      click; talks with no abstract just show plain title text. Multi-paragraph
+      abstracts (blank line in the cell) become separate <p> tags.
 """
 
 import csv
@@ -89,6 +92,22 @@ def or_tba(s):
     return esc(s) if s and s.lower() != "tba" else "TBA"
 
 
+def title_html(title, abstract):
+    title_text = or_tba(title)
+    abstract = clean(abstract)
+    if not abstract:
+        return f'<span class="session-title">{title_text}</span>'
+    paragraphs = "".join(
+        f"<p>{esc(p.strip())}</p>" for p in re.split(r"\n\s*\n", abstract) if p.strip()
+    )
+    return (
+        f'<details class="abstract-toggle">'
+        f'<summary class="session-title">{title_text}</summary>'
+        f'<div class="session-abstract">{paragraphs}</div>'
+        f"</details>"
+    )
+
+
 def fmt_time_range(start, end):
     def parts(t):
         t = t.strip()
@@ -117,7 +136,7 @@ def build_day_block(day, rows):
     lines.append('          <table class="schedule-table">')
     lines.append("            <tbody>")
 
-    for start, end, rtype, speaker, title, _abstract in rows:
+    for start, end, rtype, speaker, title, abstract in rows:
         rtype_norm = clean(rtype).lower()
         time_html = fmt_time_range(start, end)
 
@@ -154,11 +173,10 @@ def build_day_block(day, rows):
         display_type = "Contributed talk" if rtype_norm in CONTRIBUTED_ALIASES else esc(clean(rtype))
         css_class = TYPE_CLASS.get(rtype_norm, TYPE_CLASS.get("contributed talk") if rtype_norm in CONTRIBUTED_ALIASES else "contributed")
         speaker_html = or_tba(speaker)
-        title_html = or_tba(title)
         lines.append(
             f'              <tr><td class="time">{time_html}</td>'
             f'<td class="session {css_class}"><span class="session-type">{display_type}</span>'
-            f'<span class="session-title">{title_html}</span></td>'
+            f'{title_html(title, abstract)}</td>'
             f'<td class="speaker known">{speaker_html}</td></tr>'
         )
 
