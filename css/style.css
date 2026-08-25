@@ -52,6 +52,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   padding: 0 24px;
 }
 .container.narrow { max-width: var(--max-width-narrow); }
+.container.schedule-wrap { max-width: 880px; }
 
 /* Header / nav */
 .site-header {
@@ -430,9 +431,30 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 }
 .schedule-table .session.opening {
   color: var(--red-dark);
-  font-weight: 700;
 }
 .schedule-table .session.contributed {
+  color: var(--ink-soft);
+}
+.schedule-table .session.discussion {
+  color: var(--ink-soft);
+}
+.schedule-table .session.hackathon {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+.schedule-table .session-type {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.schedule-table .session-title {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  font-style: normal;
   color: var(--ink);
 }
 .schedule-table .speaker {
