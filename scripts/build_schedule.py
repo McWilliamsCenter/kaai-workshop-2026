@@ -16,7 +16,11 @@ an updated version of the CSV.
 --- CSV -> HTML mapping rules (keep this in sync with reality) ---
 
 Expected columns (row[0] is always a leading blank column from the export):
-    "", Start, End, Type, Speaker, Title, Abstract
+    "", Start, End, Chair, Type, Speaker, Title, Abstract
+
+Any rows before the first day header (e.g. a "Zoom Link for all meetings:" note
+row) are ignored. The Chair column is parsed but not currently displayed on the
+site.
 
 Day headers: a row whose Start-column cell contains "(Conference)" or
 "(Hackathon)" (e.g. "MONDAY (Conference)") starts a new day block. The DAY_LABELS
@@ -30,9 +34,10 @@ Row handling by Type (case-insensitive):
       hackathon block is laid out in the sheet). Rendered as a single plain-text
       session line, no separate speaker/title.
     - "Coffee break" / "Lunch break" -> rendered as a shaded, spanning break row.
-    - "Discussion"                  -> the Speaker column holds the discussion
-      *topic*, not a person. Rendered as the session's title line; no speaker
-      shown. (Sheet notes this will be corrected/split into real columns later.)
+    - "Discussion"                  -> the discussion *topic* (not a person) is
+      read from the Title column if present, falling back to the Speaker column
+      (an earlier version of the sheet put it there instead). Rendered as the
+      session's title line; no speaker shown.
     - "KAAI Contributed talk" / "Contributed talk" -> both normalized to the
       single displayed label "Contributed talk".
     - Everything else (Welcome & introduction, Invited talk, ...) -> shown as-is,
@@ -136,7 +141,8 @@ def build_day_block(day, rows):
     lines.append('          <table class="schedule-table">')
     lines.append("            <tbody>")
 
-    for start, end, rtype, speaker, title, abstract in rows:
+    for start, end, chair, rtype, speaker, title, abstract in rows:
+        del chair  # parsed but not displayed
         rtype_norm = clean(rtype).lower()
         time_html = fmt_time_range(start, end)
 
@@ -161,7 +167,7 @@ def build_day_block(day, rows):
 
         if rtype_norm == "discussion":
             css_class = TYPE_CLASS["discussion"]
-            topic = or_tba(speaker)
+            topic = or_tba(clean(title) or clean(speaker))
             lines.append(
                 f'              <tr><td class="time">{time_html}</td>'
                 f'<td class="session {css_class}"><span class="session-type">Discussion</span>'
@@ -198,7 +204,7 @@ def parse_csv(csv_path):
         if not row:
             continue
         row = row[1:] if len(row) > 0 else row  # drop leading blank export column
-        row += [""] * (6 - len(row))
+        row += [""] * (7 - len(row))  # Start, End, Chair, Type, Speaker, Title, Abstract
         start = clean(row[0])
 
         if "duration (mins)" in ",".join(row).lower():
@@ -216,7 +222,7 @@ def parse_csv(csv_path):
         if current_day is None:
             continue
 
-        days[current_day].append(tuple(row[:6]))
+        days[current_day].append(tuple(row[:7]))
 
     return days
 
