@@ -651,8 +651,36 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   .speaker-card {
     flex-basis: calc(50% - 12px);
   }
+  .schedule-table, .schedule-table tbody, .schedule-table tr {
+    display: block;
+    width: 100%;
+  }
+  .schedule-table tr {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .schedule-table tr:last-child {
+    border-bottom: none;
+  }
+  .schedule-table td {
+    display: block;
+    width: auto;
+    padding: 0;
+    border-bottom: none;
+    white-space: normal;
+  }
+  .schedule-table .time {
+    width: auto;
+    margin-bottom: 4px;
+  }
   .schedule-table .speaker {
-    display: none;
+    width: auto;
+    margin-top: 6px;
+    font-size: 0.85rem;
+    white-space: normal;
+  }
+  .schedule-table .break-row {
+    padding: 8px 20px;
   }
   .hero { padding: 72px 0 0; }
   .section { padding: 56px 0; }
