@@ -572,7 +572,7 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 
 /* Committee */
 .committee-grid {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 .committee-name {
   font-weight: 600;
