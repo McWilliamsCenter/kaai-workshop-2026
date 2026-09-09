@@ -569,6 +569,32 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 .track-card p {
   margin-bottom: 0;
 }
+.track-winners {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.track-winners-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin-bottom: 0.6em;
+}
+.track-winner {
+  font-size: 0.92rem;
+  color: var(--ink);
+  margin-bottom: 0.4em;
+}
+.track-winner:last-child {
+  margin-bottom: 0;
+}
+.track-winner .place {
+  font-weight: 600;
+  color: var(--red-dark);
+  margin-right: 6px;
+}
 
 /* Committee */
 .committee-grid {
